@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "99640999876",
+    "project_id": "interviewtask-3e6c9",
+    "storage_bucket": "interviewtask-3e6c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99640999876:android:17b620a819b4ac9bb72e91",
+        "android_client_info": {
+          "package_name": "com.nagendarbalajijdevs.interviewtask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99640999876-8v026ncmkfuq618fn4r9n0q5m8k8v552.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBas2ty6lJDdMNk62j4K3_TWc7tYHPvIAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99640999876-8v026ncmkfuq618fn4r9n0q5m8k8v552.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
