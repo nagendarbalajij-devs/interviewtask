@@ -11,33 +11,85 @@ class QrDisplay {
       child: Stack(
         children: [
           Container(
-              margin: EdgeInsets.fromLTRB(35, 165, 35, 25),
-              width: 500,
-              height: 200,
-              decoration: BoxDecoration(
-                color: Colours.accent,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 20),
-                    child: Text(
-                      "Generated number",
-                      style: Texts.white(),
+            margin: EdgeInsets.fromLTRB(35, 165, 35, 25),
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+//                    width: width,
+                    height: 200,
+                    color: Colours.qrBackground,
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: ClipPath(
+                    clipper: TriangleClipper(),
+                    child: Container(
+                      height: 200,
+                      color: Colours.accent,
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "$value",
-                      overflow: TextOverflow.ellipsis,
-                      style: Texts.whiteBig(),
-                    ),
+                ),
+                Container(
+                  height: 200,
+                  alignment: Alignment.center,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(top: 20, bottom: 20),
+                        child: Text(
+                          "Generated number",
+                          style: Texts.white(),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(bottom: 20),
+                        child: Text(
+                          "$value",
+                          overflow: TextOverflow.ellipsis,
+                          style: Texts.whiteBig(),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              )),
+                )
+              ],
+            ),
+          ),
+          /*ClipPath(
+            clipper: TriangleClipper(),
+            child: Container(
+                margin: EdgeInsets.fromLTRB(35, 165, 35, 25),
+                width: 500,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Colours.accent,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 20, bottom: 20),
+                      child: Text(
+                        "Generated number",
+                        style: Texts.white(),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(bottom: 20),
+                      child: Text(
+                        "$value",
+                        overflow: TextOverflow.ellipsis,
+                        style: Texts.whiteBig(),
+                      ),
+                    ),
+                  ],
+                )),
+          ),*/
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -61,7 +113,7 @@ class QrDisplay {
       child: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(color: Colours.accent, borderRadius: BorderRadius.circular(10)),
+            decoration: BoxDecoration(color: Colours.qrBackground, borderRadius: BorderRadius.circular(10)),
             margin: EdgeInsets.only(top: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -84,6 +136,7 @@ class QrDisplay {
                         ),
                       ),
                       Container(
+                        width: 150,
                         margin: EdgeInsets.only(bottom: 20),
                         child: Text(
                           "$value",
