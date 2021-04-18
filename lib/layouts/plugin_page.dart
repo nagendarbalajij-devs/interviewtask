@@ -77,7 +77,7 @@ class _PluginPageState extends State<PluginPage> {
             ),
             showOld
                 ? Container(
-                    child: QrDisplay.oldQr("$oldValue"),
+                    child: QrDisplay.oldQr("$oldValue", MediaQuery.of(context).size.width),
                   )
                 : Container()
           ],

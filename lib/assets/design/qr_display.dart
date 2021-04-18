@@ -59,37 +59,6 @@ class QrDisplay {
               ],
             ),
           ),
-          /*ClipPath(
-            clipper: TriangleClipper(),
-            child: Container(
-                margin: EdgeInsets.fromLTRB(35, 165, 35, 25),
-                width: 500,
-                height: 200,
-                decoration: BoxDecoration(
-                  color: Colours.accent,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(top: 20, bottom: 20),
-                      child: Text(
-                        "Generated number",
-                        style: Texts.white(),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 20),
-                      child: Text(
-                        "$value",
-                        overflow: TextOverflow.ellipsis,
-                        style: Texts.whiteBig(),
-                      ),
-                    ),
-                  ],
-                )),
-          ),*/
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -106,7 +75,8 @@ class QrDisplay {
     );
   }
 
-  static Widget oldQr(String value) {
+  static Widget oldQr(String value, width) {
+    double w = width - (70 + 140);
     return Container(
       height: 140,
       margin: EdgeInsets.symmetric(horizontal: 35),
@@ -121,14 +91,16 @@ class QrDisplay {
               children: [
                 Container(
                   height: 100,
-                  width: 100,
+                  width: 120,
                 ),
                 Container(
+                  width: w,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
                         margin: EdgeInsets.only(top: 20, bottom: 20),
                         child: Text(
                           "Previous number",
@@ -136,14 +108,14 @@ class QrDisplay {
                         ),
                       ),
                       Container(
-                        width: 150,
+                        padding: EdgeInsets.symmetric(horizontal: 10),
                         margin: EdgeInsets.only(bottom: 20),
                         child: Text(
                           "$value",
                           style: Texts.whiteBig(),
                           overflow: TextOverflow.ellipsis,
                         ),
-                      ),
+                      )
                     ],
                   ),
                 )
