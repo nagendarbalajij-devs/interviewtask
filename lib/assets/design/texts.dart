@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interviewtask/assets/themes/colours.dart';
+import 'package:interviewtask/utils/sizes.dart';
 
 class Texts {
   static InputDecoration p() {
@@ -12,10 +13,14 @@ class Texts {
   }
 
   static white() {
-    return TextStyle(color: Colors.white, fontSize: 22);
+    return TextStyle(color: Colors.white, fontSize: Sizes.fontSize);
   }
 
   static whiteBig() {
-    return TextStyle(color: Colors.white, fontSize: 28);
+    return TextStyle(color: Colors.white, fontSize: Sizes.fontSize * 1.7);
+  }
+
+  static whiteSubText() {
+    return TextStyle(color: Colors.white, fontSize: Sizes.fontSize * 0.7);
   }
 }

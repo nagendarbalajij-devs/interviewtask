@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:interviewtask/assets/themes/colours.dart';
@@ -5,8 +7,11 @@ import 'package:interviewtask/layouts/login_page.dart';
 import 'package:interviewtask/layouts/plugin_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:interviewtask/logic/validator.dart';
+import 'package:interviewtask/utils/sizes.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -52,7 +57,7 @@ class _LandingPageState extends State<LandingPage> {
       statusBarColor: Colors.transparent,
       statusBarIconBrightness: Brightness.light,
     ));
-
+    Sizes(context: context).initSize();
     return Scaffold(
       backgroundColor: Colours.background,
       body: Center(

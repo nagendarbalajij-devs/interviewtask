@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 import 'dart:ui';
 
@@ -41,6 +42,42 @@ class Api {
     await fs.collection("randoms").add({"value": value, "type": "$type", "timestamp": FieldValue.serverTimestamp()});
     //await FirebaseStorage.instance.ref();
     return;
+  }
+
+  static login(obj, context, phone, otp) async {
+    FirebaseAuth.instance.verifyPhoneNumber(
+      phoneNumber: "+91${phone}",
+      timeout: Duration(seconds: 10),
+      verificationCompleted: (phoneAuthCredential) async {
+        log("verification complete");
+        AuthResult result = await FirebaseAuth.instance.signInWithCredential(phoneAuthCredential);
+        if (result.user != null) {
+          Navigator.pushReplacementNamed(context, '/plugin');
+        }
+      },
+      verificationFailed: (error) {
+        obj.resetLogin();
+        log("verification falied");
+      },
+      codeSent: (verificationId, [forceResendingToken]) async {
+        if (otp == "") {
+          obj.otpSent();
+          return;
+        }
+        try {
+          AuthCredential credential = PhoneAuthProvider.getCredential(verificationId: verificationId, smsCode: otp);
+          AuthResult result = await FirebaseAuth.instance.signInWithCredential(credential);
+          log("auth done");
+          log("${result.user}");
+          if (result.user != null) {
+            Navigator.pushReplacementNamed(context, '/plugin');
+          }
+        } catch (e) {
+          obj.resetLogin();
+        }
+      },
+      codeAutoRetrievalTimeout: (verificationId) {},
+    );
   }
 
   static logout() async {

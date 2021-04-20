@@ -7,6 +7,8 @@ import 'package:interviewtask/assets/design/texts.dart';
 import 'package:interviewtask/assets/themes/colours.dart';
 import 'package:interviewtask/logic/generator.dart';
 import 'package:interviewtask/logic/qr_generator.dart';
+import 'package:interviewtask/utils/dialogs.dart';
+import 'package:interviewtask/utils/sizes.dart';
 
 class PluginPage extends StatefulWidget {
   @override
@@ -15,7 +17,7 @@ class PluginPage extends StatefulWidget {
 
 class _PluginPageState extends State<PluginPage> {
   String randomValue = " ", oldValue = "XXXXX";
-  bool showOld = false;
+  bool showOld = false, isLoading = false;
   @override
   void initState() {
     super.initState();
@@ -35,7 +37,6 @@ class _PluginPageState extends State<PluginPage> {
 
   @override
   Widget build(BuildContext context) {
-    var topPadding = MediaQuery.of(context).padding.top;
     return Scaffold(
       backgroundColor: Colours.accent,
       body: Stack(
@@ -49,12 +50,12 @@ class _PluginPageState extends State<PluginPage> {
             bottom: 25,
             right: 35,
             left: 35,
-            child: Buttons.button("Save", save),
+            child: isLoading ? Buttons.disabledProgressButton() : Buttons.button("Save", save),
           ),
           Align(
             alignment: Alignment.topRight,
             child: Container(
-              margin: EdgeInsets.only(top: topPadding),
+              margin: EdgeInsets.only(top: Sizes.topPadding),
               child: TextButton(
                 child: Text(
                   "LOGOUT",
@@ -85,7 +86,14 @@ class _PluginPageState extends State<PluginPage> {
       );
 
   save() async {
+    setState(() {
+      isLoading = !isLoading;
+    });
     await Api.saveValue(randomValue);
+    setState(() {
+      isLoading = !isLoading;
+    });
+    Dialogs.AlertDialog(context, "Success", "Number saved in database. New one generated", Icons.done_outline_rounded);
     getValues();
   }
 

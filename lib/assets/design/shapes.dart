@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interviewtask/assets/design/texts.dart';
 import 'package:interviewtask/assets/themes/colours.dart';
+import 'package:interviewtask/utils/sizes.dart';
 
 class Shapes {
   static Widget secondaryCircle() {
@@ -17,17 +18,17 @@ class Shapes {
         children: [
           Container(
             decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)), color: Colours.background),
-            padding: EdgeInsets.fromLTRB(10, 25, 10, 10),
+            padding: EdgeInsets.symmetric(vertical: Sizes.ofHeight(1.5), horizontal: Sizes.ofWidth(1.5)),
             margin: EdgeInsets.only(top: 100),
             child: body,
           ),
           Align(
             alignment: Alignment.topCenter,
             child: Container(
-                margin: EdgeInsets.only(top: 75),
+                margin: EdgeInsets.only(top: (100 - Sizes.ofHeight(2.625))),
                 decoration: BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-                height: 50,
-                padding: EdgeInsets.symmetric(vertical: 4, horizontal: 15),
+                height: Sizes.ofHeight(5.25),
+                padding: EdgeInsets.symmetric(vertical: Sizes.ofHeight(1), horizontal: Sizes.ofWidth(2.5)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

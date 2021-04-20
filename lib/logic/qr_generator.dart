@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interviewtask/utils/sizes.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class QrGenerator {
@@ -6,7 +7,7 @@ class QrGenerator {
     return QrImage(
       data: value,
       version: QrVersions.auto,
-      size: 200,
+      size: Sizes.ofWidth(50),
     );
   }
 
@@ -14,7 +15,7 @@ class QrGenerator {
     return QrImage(
       data: value,
       version: QrVersions.auto,
-      size: 100,
+      size: Sizes.ofWidth(25),
     );
   }
 }

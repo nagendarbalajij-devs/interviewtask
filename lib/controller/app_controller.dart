@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:interviewtask/api/api.dart';
+import 'package:interviewtask/logic/validator.dart';
+import 'package:interviewtask/utils/dialogs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppController {
-  setLogin(val) async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    sp.setBool("login", val);
-  }
-
-  Future<bool> getLogin() async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    return sp.getBool("login") ?? false;
+  static handleLogin(obj, context, phone, otp) {
+    if (Validator.validatePhone(phone)) {
+      Api.login(obj, context, phone, otp);
+    } else {
+      obj.phoneError();
+    }
   }
 }

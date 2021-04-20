@@ -40,4 +40,17 @@ class Validator {
       return true;
     }
   }
+
+  static bool validatePhone(phone) {
+    if (phone.length == 10) {
+      try {
+        int _ = int.parse(phone);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
 }
