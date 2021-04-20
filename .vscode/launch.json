@@ -5,6 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "ip8",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "deviceId": "C2DC7EAA-1432-438A-A4D4-2BE6DDE27776"
+        },
+        {
+            "name": "ip12mini",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "deviceId": "FBAA0D9A-7505-4470-823B-58360ADE163F"
+        },
+        {
+            "name": "ip12mp",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "deviceId": "A706AC4C-5109-4395-9CF5-E1C5C435D7BC"
+        }
+
+        /*{
             "name": "interviewtask",
             "request": "launch",
             "type": "dart"
@@ -20,6 +42,15 @@
             "cwd": "randomgenerator/example",
             "request": "launch",
             "type": "dart"
+        }*/
+
+    ],
+    "compounds": [
+        {
+            "name": "All iPhones",
+            "configurations": [
+                "ip8", "ip12mini", "ip12mp"
+            ]
         }
     ]
 }

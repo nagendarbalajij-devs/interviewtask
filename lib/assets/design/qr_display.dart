@@ -48,11 +48,17 @@ class QrDisplay {
                       ),
                       Container(
                         margin: EdgeInsets.only(bottom: Sizes.ofHeight(2)),
-                        child: Text(
-                          "$value",
-                          overflow: TextOverflow.ellipsis,
-                          style: Texts.whiteBig(),
-                        ),
+                        child: value == ""
+                            ? SizedBox(
+                                height: Sizes.ofWidth(6),
+                                width: Sizes.ofWidth(6),
+                                child: CircularProgressIndicator(),
+                              )
+                            : Text(
+                                "$value",
+                                overflow: TextOverflow.ellipsis,
+                                style: Texts.whiteBig(),
+                              ),
                       ),
                     ],
                   ),
@@ -112,11 +118,13 @@ class QrDisplay {
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: Sizes.ofWidth(2)),
                         //margin: EdgeInsets.only(bottom: Sizes.ofHeight(2)),
-                        child: Text(
-                          "$value",
-                          style: Texts.whiteBig(),
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        child: value == ""
+                            ? SizedBox(height: Sizes.ofWidth(3), width: Sizes.ofWidth(3), child: CircularProgressIndicator())
+                            : Text(
+                                "$value",
+                                style: Texts.whiteBig(),
+                                overflow: TextOverflow.ellipsis,
+                              ),
                       )
                     ],
                   ),

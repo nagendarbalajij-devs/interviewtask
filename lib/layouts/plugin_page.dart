@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:interviewtask/api/api.dart';
 import 'package:interviewtask/assets/design/buttons.dart';
@@ -16,7 +18,7 @@ class PluginPage extends StatefulWidget {
 }
 
 class _PluginPageState extends State<PluginPage> {
-  String randomValue = " ", oldValue = "XXXXX";
+  String randomValue = "", oldValue = "";
   bool showOld = false, isLoading = false;
   @override
   void initState() {
@@ -25,6 +27,10 @@ class _PluginPageState extends State<PluginPage> {
   }
 
   getValues() async {
+    setState(() {
+      randomValue = "";
+      oldValue = "";
+    });
     randomValue = await Generator.getRandom();
     print(randomValue);
     oldValue = await Api.getPrevious();
